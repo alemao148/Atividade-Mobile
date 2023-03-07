@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Login and Sign Up</string>
+    <string name="title_activity_sing_up">SingUpActivity</string>
+</resources>
