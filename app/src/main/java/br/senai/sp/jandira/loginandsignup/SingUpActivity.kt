@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -60,7 +61,7 @@ fun SingUp() {
     }
 
     var checkBoxState = rememberSaveable{
-        mutableStateOf("")
+        mutableStateOf(false)
     }
 
     Surface(
@@ -93,13 +94,13 @@ fun SingUp() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Sign Up",
+                    text = stringResource(id = R.string.signup_title),
                     fontSize = 32.sp,
                     fontWeight = FontWeight(700),
                     color = defaultColor
                 )
                 Text(
-                    text = "Create a new account",
+                    text = stringResource(id = R.string.signup_description),
                     fontSize = 14.sp,
                     color = Color(160, 156, 156)
                 )
@@ -130,7 +131,7 @@ fun SingUp() {
                         .width(370.dp)
                         .height(58.dp),
                     shape = RoundedCornerShape(16.dp),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 OutlinedTextField(
@@ -152,7 +153,8 @@ fun SingUp() {
                         .width(370.dp)
                         .height(58.dp),
                     shape = RoundedCornerShape(16.dp),
-                    visualTransformation = PasswordVisualTransformation()
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
+
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 OutlinedTextField(
@@ -196,7 +198,7 @@ fun SingUp() {
                         .width(370.dp)
                         .height(58.dp),
                     shape = RoundedCornerShape(16.dp),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+                    visualTransformation = PasswordVisualTransformation()
                 )
             }
             Spacer(modifier = Modifier.height(31.dp))
@@ -204,8 +206,9 @@ fun SingUp() {
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Checkbox(checked = false, onCheckedChange = {})
-                Text(text = "Over 18?",
+                Checkbox(checked = checkBoxState.value, onCheckedChange = {checkBoxState.value = it},
+                colors = CheckboxDefaults.colors(checkedColor = defaultColor))
+                Text(text = stringResource(id = R.string.over_eighteen),
                 fontSize = 14.sp,
                 fontWeight = FontWeight(400))
             }
@@ -224,7 +227,7 @@ fun SingUp() {
                         .height(48.dp)
                 ) {
                     Text(
-                        text = "CREATE ACCOUNT",
+                        text = stringResource(id = R.string.create_account),
                         color = Color.White,
                         fontSize = 16.sp,
                         fontWeight = FontWeight(700)
@@ -235,13 +238,13 @@ fun SingUp() {
                 Spacer(modifier = Modifier.height(31.dp))
                 Row() {
                     Text(
-                        text = "Don’t have an account?",
+                        text = stringResource(id = R.string.already_have_account),
                         fontSize = 12.sp,
                         color = Color(168, 156, 156),
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "Sign Up",
+                        text = stringResource(id = R.string.sign_in),
                         modifier = Modifier
                             .clickable { },
                         fontSize = 12.sp,

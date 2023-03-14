@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -82,13 +83,13 @@ fun LoginScreen() {
                     .padding(17.dp, 0.dp)
             ) {
                 Text(
-                    text = "Login",
+                    text = stringResource(id = R.string.login_title),
                     fontSize = 48.sp,
                     fontWeight = FontWeight(700),
                     color = defaultColor
                 )
                 Text(
-                    text = "Please sing in to continue",
+                    text = stringResource(id = R.string.login_description),
                     fontSize = 14.sp,
                     color = Color(160, 156, 156)
                 )
@@ -161,7 +162,7 @@ fun LoginScreen() {
                         .height(48.dp)
                 ) {
                     Text(
-                        text = "SIGN IN",
+                        text = stringResource(id = R.string.sign_in).uppercase(),
                         color = Color.White,
                         fontSize = 16.sp,
                         fontWeight = FontWeight(700)
@@ -176,13 +177,13 @@ fun LoginScreen() {
                 Spacer(modifier = Modifier.height(31.dp))
                 Row() {
                     Text(
-                        text = "Don’t have an account?",
+                        text = stringResource(id = R.string.dont_have_account),
                         fontSize = 12.sp,
                         color = Color(168, 156, 156),
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "Sign Up",
+                        text = stringResource(id = R.string.signup_title),
                         modifier = Modifier
                             .clickable { },
                         fontSize = 12.sp,
